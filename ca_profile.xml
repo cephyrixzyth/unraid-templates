@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CommunityApplications>
+  <Profile>
+**Oneirodex** is a self-hosted game library for a household. Scan folders of DRM-free games and ROMs, identify them with game metadata, and browse the catalog with family members.
+
+This repository contains the Oneirodex Docker template for Unraid Community Applications. It installs the single-container image with PostgreSQL embedded. Keep Appdata on cache or SSD storage, mount the Games share read-only, and complete the setup wizard in the WebUI.
+
+Project and source: https://github.com/cephyrixzyth/Oneirodex
+Setup guide: https://github.com/cephyrixzyth/Oneirodex/blob/main/docs/runbooks/unraid-community-apps.md
+Issues: https://github.com/cephyrixzyth/Oneirodex/issues
+
+Oneirodex is for software you are authorized to share. It ships no BIOS or firmware.
+  </Profile>
+  <Icon>https://raw.githubusercontent.com/cephyrixzyth/unraid-templates/main/icon.png</Icon>
+  <WebPage>https://github.com/cephyrixzyth/Oneirodex</WebPage>
+</CommunityApplications>
