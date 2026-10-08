@@ -14,7 +14,7 @@
 &#xD;
 One container includes the web app and PostgreSQL. Point Games at your existing game share (mounted read-only), keep Appdata on cache/SSD, and open the WebUI to start setup. Your database, settings, generated secrets, and artwork stay in Appdata.&#xD;
 &#xD;
-Release 1.1.2 · Multi-architecture image for amd64 and arm64. Optional metadata, workstation artwork, ClamAV, and TRAWL connections are configured by you and off until enabled.&#xD;
+Release 1.1.4 · Multi-architecture image for amd64 and arm64. Optional metadata, workstation artwork, ClamAV, and TRAWL connections are configured by you and off until enabled.&#xD;
 &#xD;
 Oneirodex does not include game files, BIOS, firmware, or encryption keys. Use only software you are authorized to access. Install, backup, and update guide: https://github.com/cephyrixzyth/Oneirodex/blob/main/docs/runbooks/unraid-community-apps.md</Overview>
   <Category>Tools: Productivity: MediaApp:Other:</Category>
