@@ -19,3 +19,13 @@ The image is published at [Docker Hub](https://hub.docker.com/r/cephyrixzyth/one
 - Issues: [Oneirodex issue tracker](https://github.com/cephyrixzyth/Oneirodex/issues)
 
 Oneirodex is intended for software you are authorized to share. The image does not include BIOS or firmware.
+
+## Audiotheca
+
+[Audiotheca](https://github.com/cephyrixzyth/Audiotheca) scans, deduplicates and organizes large audio-software and sample libraries. The template is in [`audiotheca/audiotheca.xml`](audiotheca/audiotheca.xml) and installs `ghcr.io/cephyrixzyth/audiotheca` (web UI and API engine in one container).
+
+- Map **Library** to the share to scan. It is mounted read-only at `/library` by default.
+- Set **API token** and **Proxy secret** to two different long random strings (`openssl rand -hex 32`).
+- Open the WebUI on port 4210.
+
+Issues: [Audiotheca issue tracker](https://github.com/cephyrixzyth/Audiotheca/issues). The AGPL-3.0 license in this repository covers the template files; the Audiotheca application is licensed separately.
