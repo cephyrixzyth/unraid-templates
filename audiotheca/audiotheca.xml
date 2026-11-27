@@ -1,0 +1,34 @@
+<?xml version="1.0"?>
+<Container version="2">
+  <Name>Audiotheca</Name>
+  <Repository>ghcr.io/cephyrixzyth/audiotheca:latest</Repository>
+  <Registry>https://github.com/cephyrixzyth/Audiotheca/pkgs/container/audiotheca</Registry>
+  <Network>bridge</Network>
+  <Shell>bash</Shell>
+  <Privileged>false</Privileged>
+  <Support>https://github.com/cephyrixzyth/Audiotheca/issues</Support>
+  <Project>https://github.com/cephyrixzyth/Audiotheca</Project>
+  <Overview>Audiotheca scans, identifies, deduplicates and plans the restructuring of large audio-software and sample libraries stored on your array. It lists archive contents without extracting, finds duplicate products with strict matching, proposes vendor-folder routing, and writes CSV/JSON reports before anything moves. Dry-run is the default, and nothing is ever permanently deleted: suspected duplicates go to a review folder.
+
+The browser UI (nginx) and the API engine run together in this one container. Mount your library read-only for dry-run scans.
+
+Before you click Apply, set the two required secrets (API token and proxy secret) to two different long random strings. You can generate each one with: openssl rand -hex 32</Overview>
+  <Category>Tools:Utilities MediaApp:Music</Category>
+  <WebUI>http://[IP]:[PORT:80]/</WebUI>
+  <TemplateURL>https://raw.githubusercontent.com/cephyrixzyth/unraid-templates/main/audiotheca/audiotheca.xml</TemplateURL>
+  <Icon>https://raw.githubusercontent.com/cephyrixzyth/unraid-templates/main/audiotheca/icon.png</Icon>
+  <ExtraParams>--restart=unless-stopped</ExtraParams>
+  <Screenshot>https://raw.githubusercontent.com/cephyrixzyth/Audiotheca/main/docs/assets/screenshots/dashboard-gauges.png</Screenshot>
+  <Screenshot>https://raw.githubusercontent.com/cephyrixzyth/Audiotheca/main/docs/assets/screenshots/duplicates-review.png</Screenshot>
+  <Screenshot>https://raw.githubusercontent.com/cephyrixzyth/Audiotheca/main/docs/assets/screenshots/restructure-preview.png</Screenshot>
+  <Config Name="WebUI" Target="80" Default="4210" Mode="tcp" Description="Browser UI port. The UI proxies /api to the engine inside the container, so the API port does not need to be published." Type="Port" Display="always" Required="true" Mask="false">4210</Config>
+  <Config Name="Appdata" Target="/data" Default="/mnt/user/appdata/audiotheca" Mode="rw" Description="Reports, scan cache and feedback files (AUDIOTHECA_HOME)." Type="Path" Display="always" Required="true" Mask="false">/mnt/user/appdata/audiotheca</Config>
+  <Config Name="Library" Target="/library" Default="" Mode="ro" Description="Your audio library share on the array, for example /mnt/user/audio. Read-only is recommended; change to read/write only when you are ready for live moves." Type="Path" Display="always" Required="true" Mask="false"></Config>
+  <Config Name="API token" Target="AUDIOTHECA_API_TOKEN" Default="" Mode="" Description="Required. A long random string (openssl rand -hex 32)." Type="Variable" Display="always" Required="true" Mask="true"></Config>
+  <Config Name="Proxy secret" Target="AUDIOTHECA_PROXY_SECRET" Default="" Mode="" Description="Required. Shared secret between the UI proxy and the API. Must be different from the API token (openssl rand -hex 32)." Type="Variable" Display="always" Required="true" Mask="true"></Config>
+  <Config Name="AUDIOTHECA_HOME" Target="AUDIOTHECA_HOME" Default="/data" Mode="" Description="Workspace path inside the container. Leave as /data." Type="Variable" Display="advanced-hide" Required="true" Mask="false">/data</Config>
+  <Config Name="AUDIOTHECA_LIBRARY_ROOT" Target="AUDIOTHECA_LIBRARY_ROOT" Default="/library" Mode="" Description="Library root inside the container. Must match the Library container path." Type="Variable" Display="advanced-hide" Required="true" Mask="false">/library</Config>
+  <Config Name="AUDIOTHECA_LIBRARY_ROOTS" Target="AUDIOTHECA_LIBRARY_ROOTS" Default="/library" Mode="" Description="Comma-separated allowlist of paths the engine may touch." Type="Variable" Display="advanced" Required="true" Mask="false">/library</Config>
+  <Config Name="AUDIOTHECA_DISABLE_TOKEN_BOOTSTRAP" Target="AUDIOTHECA_DISABLE_TOKEN_BOOTSTRAP" Default="1" Mode="" Description="Keep 1. Browser sessions are minted through the proxy secret only." Type="Variable" Display="advanced" Required="false" Mask="false">1</Config>
+  <Config Name="SEARXNG_URL" Target="SEARXNG_URL" Default="" Mode="" Description="Optional SearXNG base URL for vendor research, for example http://192.168.1.10:8081. Leave empty if you do not run SearXNG." Type="Variable" Display="advanced" Required="false" Mask="false"></Config>
+</Container>

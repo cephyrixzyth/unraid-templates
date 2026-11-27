@@ -10,6 +10,11 @@ Setup guide: https://github.com/cephyrixzyth/Oneirodex/blob/main/docs/runbooks/u
 Issues: https://github.com/cephyrixzyth/Oneirodex/issues
 
 Oneirodex is for software you are authorized to share. It ships no BIOS or firmware.
+
+**Audiotheca** scans, deduplicates and organizes large audio-software and sample libraries on the array, with a browser UI and dry-run reports before anything moves.
+
+Project and source: https://github.com/cephyrixzyth/Audiotheca
+Issues: https://github.com/cephyrixzyth/Audiotheca/issues
   </Profile>
   <Icon>https://raw.githubusercontent.com/cephyrixzyth/unraid-templates/main/icon.png</Icon>
   <WebPage>https://github.com/cephyrixzyth/Oneirodex</WebPage>
